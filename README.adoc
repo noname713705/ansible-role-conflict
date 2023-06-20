@@ -1,0 +1,47 @@
+= README
+:toc:
+:toclevels: 4
+:numbered:
+:source-highlighter: highlight.js
+:highlightjs-theme: agate
+
+== The context
+* imagine I have two httpd apps
+** one named app1
+** one named app2
+* since they are both based on the same techno (httpd, to make it simple and slim..)
+* I want to define three roles
+** httpd (the common infra)
+** app1 (specific for app1, running on httpd)
+** app2 (specific for app2, running on httpd)
+* So, of course, I want machines for app1 & app2 share a common role : httpd
+
+== the problem
+* If app1 is deployed on host1
+* If app2 is deployed on host2
+** Then I have no problem
+* Problem comes from (for example, on dev environments..)
+** when app1 & app2 are installed on the same host
+* then, the same host (commonhost) will have the same variable (say httpd_port) defined from two roles:
+** role1
+** rol2
+* ansible won't let me choose to "only run role1" for common host (or role2, if that matters)
+
+
+
+== Notes
+* we define at least 3 ansible roles
+** one for infrastructure (httpd)
+** two for two different apps
+*** similar in which they are based on the same infra (httpd)
+*** but have different roles, configuration, files.. etc
+*** and the most important one : one different apache_http_port for both role
+** This leads to unpredictable executions
+*** for example {{ app2 }} will inherit of {{ apache_http_port }} of role1 :-/
+* to show this
+** on prod
+*** host1 will run app1
+*** host2 will run app2
+*** so, there should be no problem
+** but on dev
+*** app1 & app2 will be installed on commonhost (and there will be a problem)
