@@ -1,0 +1,21 @@
+---
+
+- name: Lets install the httpd package...
+  package:
+    name: "httpd"
+    state: "present"
+
+- name: update config for Listen port on {{httpd_port}}
+  replace:
+    dest: /etc/httpd/conf/httpd.conf
+    regexp: 'Listen 80'
+    replace: 'Listen {{httpd_port}}'
+    backup: yes
+
+- name: enable service httpd, ensure it is not masked and started
+  systemd:
+    name: httpd
+    enabled: yes
+    masked: no
+    daemon_reload: yes
+    state: started
