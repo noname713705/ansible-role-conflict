@@ -1,1 +1,4 @@
-
+- hosts: app1
+  roles:
+  - httpd
+  - app1
