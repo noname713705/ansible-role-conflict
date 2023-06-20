@@ -1,0 +1,2 @@
+- name: Lets install httpd
+  include_tasks: httpd.yml tags=httpd
