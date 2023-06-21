@@ -1,0 +1,6 @@
+- hosts: app1
+  vars_files:
+    - "{{ vars_files_path }}"
+  roles:
+  - app1
+  - httpd
