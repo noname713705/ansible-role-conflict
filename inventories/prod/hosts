@@ -1,0 +1,9 @@
+[httpd]
+servera.lab.example.com
+serverb.lab.example.com
+
+[app1]
+servera.lab.example.com
+
+[app2]
+serverb.lab.example.com

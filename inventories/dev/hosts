@@ -1,1 +1,9 @@
 # comming soon
+[httpd]
+serverd.lab.example.com
+
+[app1]
+serverd.lab.example.com
+
+[app2]
+serverd.lab.example.com
