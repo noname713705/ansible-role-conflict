@@ -1,0 +1,11 @@
+---
+
+- name: let's check vars_files
+  debug:
+    msg: "vars_files_path={{ vars_files_path }}"
+  when: vars_files_path is defined
+
+- name: Lets install the httpd package...
+  debug:
+    msg: "let's pretend I have installed httpd with port={{httpd_port}}"
+
