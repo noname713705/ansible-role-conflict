@@ -1,0 +1,3 @@
+- name: "install app1"
+  debug:
+     msg: "installing app1 with httpd_port={{ httpd_port }}"
