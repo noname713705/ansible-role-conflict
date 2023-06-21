@@ -1,2 +1,3 @@
+---
 httpd_application_name: "app1"
-apache_http_port: 81
+httpd_port: 81

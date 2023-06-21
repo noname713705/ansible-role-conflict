@@ -1,2 +1,3 @@
-# also comming soon
-apache_http_port=82
+---
+httpd_application_name: "app2"
+httpd_port: 82
