@@ -45,3 +45,12 @@
 *** so, there should be no problem
 ** but on dev
 *** app1 & app2 will be installed on commonhost (and there will be a problem)
+
+== problem
+
+== current solution
+* hardcode the vars files passed to the playbook run
+
+----
+-e vars_files_path=./inventories/dev/group_vars/app1.yml
+----
